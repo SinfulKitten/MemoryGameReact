@@ -1,12 +1,12 @@
 import React from 'react'
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
    
 
-{/**
-Home page where players enter their player names and can click the 
-start button to start the game. Uses html form elements and a button
-*/}
+
+//Home page where players enter their player names and can click the 
+//start button to start the game. Uses html form elements and a button
+
 export default function Home() {
 
      const navigate = useNavigate();
@@ -26,10 +26,10 @@ export default function Home() {
         </div>
 
         <form>
-        <img className="P1_sprite" src='/images/player1.png'/>
+        <img className="P1_sprite" src='/images/player1.png' alt="player_1_sprite"/>
         <input type="text" id="P1_name" name="P1_name" placeholder='Name of player 1'></input>
-        <img className="P2_sprite" src='/images/player2.png' alt="player_2_sprote"/>
-        <input type="text" id="P1_name" name="P2_name" placeholder='Name of player 2'></input>
+        <img className="P2_sprite" src='/images/player2.png' alt="player_2_sprite"/>
+        <input type="text" id="P1_name" name="P2_name" placeholder='Name of player 2' ></input>
         </form>
 
         <div className="start_button">

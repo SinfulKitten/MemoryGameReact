@@ -74,11 +74,11 @@ function Game() {
     }
   }, [choiceOne, choiceTwo])
 
-{/**
-  resets the choices and increases number of turns that the player 
-  has taken
-  uses function to set the turns using the previous state
-*/}
+
+//resets the choices and increases number of turns that the player 
+//has taken
+//  uses function to set the turns using the previous state
+
 
   const resetTurn = () => {
     setChoiceOne(null)
@@ -92,17 +92,17 @@ function Game() {
 
   //returns the main application
 
-  {/**
-  the main application return value needs have routes for displaying 
-  the pages that the user will view and the relevant routes depending
-  on what actions the user takes.
+  
+ // the main application return value needs have routes for displaying 
+ // the pages that the user will view and the relevant routes depending
+ // on what actions the user takes.
 
-  The user is greeted by the home page , after pressing the enter buttton ,
-  they are taken to the main gameplay page .
+ // The user is greeted by the home page , after pressing the enter buttton ,
+ // they are taken to the main gameplay page .
 
-  When either play wins , they are then routed to the page stating which player
-  has won the game
-*/}
+  //When either play wins , they are then routed to the page stating which player
+//  has won the game
+
   return (
     <div className="App">
       <h1> Memory card game</h1>
