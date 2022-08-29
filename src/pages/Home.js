@@ -1,10 +1,21 @@
 import React from 'react'
+import {Routes, Route, useNavigate} from 'react-router-dom';
+
+   
 
 {/**
 Home page where players enter their player names and can click the 
 start button to start the game. Uses html form elements and a button
 */}
 export default function Home() {
+
+     const navigate = useNavigate();
+
+    const navigateGamePage = () => {
+    // 👇️ navigate to /
+    navigate('/FIGHT!');
+  };
+
   return (
     <div>
         <div className="memory_logo">
@@ -22,7 +33,7 @@ export default function Home() {
         </form>
 
         <div className="start_button">
-        <button type="button">Lets Play</button>
+        <button type="button" onClick={navigateGamePage} >Lets Play</button>
         </div>
            
     </div>
