@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Game.css';
 import SingleCard from '../components/SingleCard';
+import {useNavigate} from 'react-router-dom';
 
 //importing the deck images
 //initially non of the cards are matched , but i they are matched , 
@@ -45,6 +46,14 @@ function Game() {
     console.log(card)
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
   }
+
+    const navigate = useNavigate();
+
+    const navigateWinnerPage = () => {
+    // 👇️ navigate to /
+    navigate('/fatality');
+  };
+
 
   //compare 2 selected cards
   //fires when the component first mounts automaticaly and then again
@@ -106,8 +115,7 @@ function Game() {
   return (
     <div className="App">
       <h1> Memory card game</h1>
-      <button onClick={cardshuffler}>Start</button>
-
+      <button onClick={cardshuffler}>Start</button>    
       <div className='card-grid'>
       {cards.map(card => (
         <SingleCard key={card.id} card={card}
@@ -115,7 +123,11 @@ function Game() {
         flipped={card === choiceOne || card === choiceTwo || card.matched}
         disabled={disabled}
        />
+       
       ))}
+      <div className="start_button">
+        <button type="button" onClick={navigateWinnerPage} >test win page</button>
+        </div>
       </div>
     </div>
   );
