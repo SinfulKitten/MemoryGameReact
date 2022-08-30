@@ -128,7 +128,6 @@ function Game() {
     setChoiceTwo(null)
     setTurns(prevTurns => prevTurns + 1)
     setDisabled(false)
-    console.log(p1Points + p2Points)
     //TODO: when the full card array matched == true
     // navigate to winner page
   }
@@ -174,7 +173,7 @@ function Game() {
       }
 
     }
-  }, [choiceOne, choiceTwo,turns, resetTurn])
+  }, [choiceOne, choiceTwo, turns])
 
 
 //resets the choices and increases number of turns that the player 
