@@ -204,21 +204,21 @@ function Game() {
        </div>
 
       <div className="playerNav">
-      <img src='images/player1.png' className="sprite1" />
+      <img src='images/player1.png' className="sprite1" alt='sprite 1'/>
       <div className="playerContainer">
       <p>{p1Points}</p>
       <p>Player 1</p>
       </div>
       
       <div className="playerContainer">
-      <p>{turns % 2 == 0 ? "Player 1's Turn" : "Player 2's Turn"}</p>
+      <p>{turns % 2 === 0 ? "Player 1's Turn" : "Player 2's Turn"}</p>
       </div>
 
       <div className="playerContainer">
       <p>{p2Points}</p>
         <p>Player 2</p>
       </div>
-      <img src='images/player2.png' className="sprite2" />
+      <img src='images/player2.png' className="sprite2" alt="sprite2" />
       </div>
 
       <button onClick={cardshuffler}>START GAME</button>    

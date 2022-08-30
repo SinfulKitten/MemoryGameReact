@@ -9,7 +9,6 @@ import { useNavigate} from 'react-router-dom';
 export default function Home() {
 
     const navigate = useNavigate();
-    var playerNames = []
 
     const navigateGamePage = () => {
     navigate('/FIGHT!');
