@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigate} from 'react-router-dom';
-
    
 
 
@@ -9,12 +8,21 @@ import { useNavigate} from 'react-router-dom';
 
 export default function Home() {
 
-     const navigate = useNavigate();
+    const navigate = useNavigate();
+    var playerNames = []
 
     const navigateGamePage = () => {
-    // 👇️ navigate to /
     navigate('/FIGHT!');
   };
+
+  //this allows collection of player names and also navigates to the
+  //main gameplay page
+  function navAndCollect() {
+  var player1Name = document.getElementById('P1_name').value;
+  var player2Name = document.getElementById('P2_name').value;
+  navigateGamePage();
+  console.log(player1Name, player2Name);
+}
 
   return (
     <div>
@@ -27,14 +35,18 @@ export default function Home() {
 
         <form>
         <img className="P1_sprite" src='/images/player1.png' alt="player_1_sprite"/>
-        <input type="text" id="P1_name" name="P1_name" placeholder='Name of player 1'></input>
-        <img className="P2_sprite" src='/images/player2.png' alt="player_2_sprite"/>
-        <input type="text" id="P1_name" name="P2_name" placeholder='Name of player 2' ></input>
-        </form>
 
+        <input type="text" id="P1_name" name="P1_name" placeholder='player 1' required/>
+
+        <img className="P2_sprite" src='/images/player2.png' alt="player_2_sprite"/>
+
+        <input type="text" id="P2_name" name="P2_name" placeholder='player 2' required/>
+
+        </form>
         <div className="start_button">
-        <button type="button" onClick={navigateGamePage} >Lets Play</button>
+        <button type="button" onClick={navAndCollect} >Lets Play</button>
         </div>
+
            
     </div>
   )

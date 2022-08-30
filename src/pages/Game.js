@@ -65,15 +65,20 @@ const cardImages = [
 ]
 
 function Game() {
+
   const [cards, setCards] = useState([])
   const [turns, setTurns] = useState(0)
+  const [p1Points, setp1points] = useState(0);
+  const [p2Points, setp2points] = useState(0);
+
 
   //when user selects their first card , the first choice will be set to that card , 
   //same logic for the second card
   const [choiceOne , setChoiceOne] = useState(null)
   const [choiceTwo , setChoiceTwo] = useState(null)
   const [disabled, setDisabled] = useState(false)
-  
+
+
 
   //this will shuffle the cards
    //shuffles the deck of card and creates a duplicate set so that there are matching pairs
@@ -86,20 +91,22 @@ function Game() {
     .sort(() => Math.random() - 0.5)
     .map((card) => ({...card, id: Math.random()}))
     setCards(shuffledcards)
+    setTurns(0)
+    setp1points(0)
+    setp2points(0)
   }
 
 
   //handle a choice
   const handleChoice = (card) => {
-    console.log(card)
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
   }
 
     const navigate = useNavigate();
 
-    const navigateWinnerPage = () => {
+    const quitGame = () => {
     // 👇️ navigate to /
-    navigate('/fatality');
+    navigate('/');
   };
 
   //compare 2 selected cards
@@ -116,7 +123,11 @@ function Game() {
                 setCards(prevCards => {
           return prevCards.map(card => {
             if (card.number === choiceOne.number) {
-              
+             if(turns % 2 == 0) {
+              setp1points(prev1Points => prev1Points + 0.5)
+            } else if(turns % 2 !== 0){
+              setp2points(prev2Points => prev2Points + 0.5)
+            }
               return { ...card, matched: true }
             } else {
               return card
@@ -124,11 +135,17 @@ function Game() {
           })
         })
         resetTurn()
+  
       }
       else if (choiceOne.number === choiceTwo.number && choiceOne.colour === choiceTwo.colour) {
         setCards(prevCards => {
           return prevCards.map(card => {
             if (card.number === choiceOne.number && card.colour === choiceOne.colour) {
+              if(turns % 2 == 0) {
+              setp1points(prev1Points => prev1Points + 0.5)
+            } else if(turns % 2 !== 0){
+              setp2points(prev2Points => prev2Points + 0.5)
+            }
               return { ...card, matched: true }
             } else {
               return card
@@ -152,13 +169,12 @@ function Game() {
     setChoiceOne(null)
     setChoiceTwo(null)
     setTurns(prevTurns => prevTurns + 1)
+    console.log(turns)
     setDisabled(false)
+    console.log(p1Points, p2Points)
     //TODO: when the full card array matched == true
     // navigate to winner page
   }
-
-    //checking some stuff
-  console.log(cards, turns)
 
   //returns the main application
 
@@ -174,9 +190,32 @@ function Game() {
 //  has won the game
 
   return (
-    <div className="App">
+    <div className="Game">
       <h1> Memory card game</h1>
-      <button onClick={cardshuffler}>Reset Game</button>    
+      <div>
+       <button onClick={cardshuffler}>START GAME</button>    
+       <button onClick={quitGame}>EXIT GAME</button>    
+       </div>
+
+      <div className="playerNav">
+      <img src='images/player1.png' className="sprite1" />
+      <div className="playerContainer">
+      <p>{p1Points}</p>
+      <p>Player 1</p>
+      </div>
+      
+      <div className="playerContainer">
+      <p>{turns % 2 == 0 ? "Player 1's Turn" : "Player 2's Turn"}</p>
+      </div>
+
+      <div className="playerContainer">
+      <p>{p2Points}</p>
+        <p>Player 2</p>
+      </div>
+      <img src='images/player2.png' className="sprite2" />
+      </div>
+
+      <button onClick={cardshuffler}>START GAME</button>    
       <div className='card-grid'>
       {cards.map(card => (
         <SingleCard key={card.id} card={card}

@@ -1,6 +1,7 @@
-.App{
+.Game{
   max-width: 860px;
   margin:  40px auto;
+  font-family:Arial, Helvetica, sans-serif
 }
 
 button {
@@ -24,4 +25,26 @@ button:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
   grid-gap: 20px;	
+}
+
+.playerNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.playerContainer {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.sprite1{
+  height: 100px;
+  width: 100px;
+}
+
+.sprite2{
+  height: 100px;
+  width: 100px;
 }
