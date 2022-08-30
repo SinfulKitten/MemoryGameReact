@@ -121,7 +121,17 @@ function Game() {
   //only runs if both cards are selected
   //need to reset the turns so that the player can
   //make another move
-
+  
+  const resetTurn = () => {
+    
+    setChoiceOne(null)
+    setChoiceTwo(null)
+    setTurns(prevTurns => prevTurns + 1)
+    setDisabled(false)
+    console.log(p1Points + p2Points)
+    //TODO: when the full card array matched == true
+    // navigate to winner page
+  }
  useEffect(() => {
     if (choiceOne && choiceTwo) {
       setDisabled(true)
@@ -171,16 +181,6 @@ function Game() {
 //has taken
 //  uses function to set the turns using the previous state
 
-  const resetTurn = () => {
-    
-    setChoiceOne(null)
-    setChoiceTwo(null)
-    setTurns(prevTurns => prevTurns + 1)
-    setDisabled(false)
-    console.log(p1Points + p2Points)
-    //TODO: when the full card array matched == true
-    // navigate to winner page
-  }
 
   //returns the main application
 
