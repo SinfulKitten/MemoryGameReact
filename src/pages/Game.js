@@ -99,6 +99,9 @@ function Game() {
 
   //handle a choice
   const handleChoice = (card) => {
+    if(p2Points + p1Points === 54) {
+              winGame()
+            }
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
   }
 
@@ -109,6 +112,9 @@ function Game() {
     navigate('/');
   };
 
+  const winGame = () => {
+    navigate('/fatality')
+  }
   //compare 2 selected cards
   //fires when the component first mounts automaticaly and then again
   //when a dependancy changes
@@ -123,7 +129,7 @@ function Game() {
                 setCards(prevCards => {
           return prevCards.map(card => {
             if (card.number === choiceOne.number) {
-             if(turns % 2 == 0) {
+             if(turns % 2 === 0) {
               setp1points(prev1Points => prev1Points + 0.5)
             } else if(turns % 2 !== 0){
               setp2points(prev2Points => prev2Points + 0.5)
@@ -141,7 +147,7 @@ function Game() {
         setCards(prevCards => {
           return prevCards.map(card => {
             if (card.number === choiceOne.number && card.colour === choiceOne.colour) {
-              if(turns % 2 == 0) {
+              if(turns % 2 === 0) {
               setp1points(prev1Points => prev1Points + 0.5)
             } else if(turns % 2 !== 0){
               setp2points(prev2Points => prev2Points + 0.5)
@@ -166,12 +172,12 @@ function Game() {
 //  uses function to set the turns using the previous state
 
   const resetTurn = () => {
+    
     setChoiceOne(null)
     setChoiceTwo(null)
     setTurns(prevTurns => prevTurns + 1)
-    console.log(turns)
     setDisabled(false)
-    console.log(p1Points, p2Points)
+    console.log(p1Points + p2Points)
     //TODO: when the full card array matched == true
     // navigate to winner page
   }
@@ -193,7 +199,7 @@ function Game() {
     <div className="Game">
       <h1> Memory card game</h1>
       <div>
-       <button onClick={cardshuffler}>START GAME</button>    
+       <button onClick={cardshuffler}>RESET GAME</button>    
        <button onClick={quitGame}>EXIT GAME</button>    
        </div>
 
