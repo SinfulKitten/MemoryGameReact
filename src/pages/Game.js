@@ -7,12 +7,12 @@ import {useNavigate} from 'react-router-dom';
 //initially non of the cards are matched , but i they are matched , 
 //the that property is set to true
 const cardImages = [
-  {src : "/images/helmet-1.png", matched: false},
-  {src : "/images/potion-1.png", matched: false},
-  {src : "/images/ring-1.png", matched: false},
-  {src : "/images/scroll-1.png", matched: false},
-  {src : "/images/shield-1.png", matched: false},
-  {src : "/images/sword-1.png", matched: false},
+  {src : "/images/black 2.png", matched: false},
+  {src : "/images/blackJoker.png", matched: false},
+  {src : "/images/red2.png", matched: false},
+  {src : "/images/redHeart2.png", matched: false},
+  {src : "/images/redJoker.png", matched: false},
+  {src : "/images/blackHeart8.png", matched: false},
 ]
 
 function Game() {
