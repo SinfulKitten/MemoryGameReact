@@ -164,7 +164,7 @@ function Game() {
       }
 
     }
-  }, [choiceOne, choiceTwo])
+  }, [choiceOne, choiceTwo,turns, resetTurn])
 
 
 //resets the choices and increases number of turns that the player 
