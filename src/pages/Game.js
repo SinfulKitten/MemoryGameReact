@@ -7,12 +7,56 @@ import {useNavigate} from 'react-router-dom';
 //initially non of the cards are matched , but i they are matched , 
 //the that property is set to true
 const cardImages = [
-  {src : "/images/black 2.png", matched: false},
-  {src : "/images/blackJoker.png", matched: false},
-  {src : "/images/red2.png", matched: false},
-  {src : "/images/redHeart2.png", matched: false},
-  {src : "/images/redJoker.png", matched: false},
-  {src : "/images/blackHeart8.png", matched: false},
+  {src : "/images/2-1.png", matched: false},
+  {src : "/images/2-2.png", matched: false},
+  {src : "/images/2-3.png", matched: false},
+  {src : "/images/2.png", matched: false},
+  {src : "/images/3-1.png", matched: false},
+  {src : "/images/3-2.png", matched: false},
+  {src : "/images/3-3.png", matched: false},
+  {src : "/images/3.png", matched: false},
+  {src : "/images/4-1.png", matched: false},
+  {src : "/images/4-2.png", matched: false},
+  {src : "/images/4-3.png", matched: false},
+  {src : "/images/4.png", matched: false},
+  {src : "/images/5-1.png", matched: false},
+  {src : "/images/5-2.png", matched: false},
+  {src : "/images/5-3.png", matched: false},
+  {src : "/images/5.png", matched: false},
+  {src : "/images/6-1.png", matched: false},
+  {src : "/images/6-2.png", matched: false},
+  {src : "/images/6-3.png", matched: false},
+  {src : "/images/6.png", matched: false},
+  {src : "/images/7-1.png", matched: false},
+  {src : "/images/7-2.png", matched: false},
+  {src : "/images/7-3.png", matched: false},
+  {src : "/images/7.png", matched: false},
+  {src : "/images/8-1.png", matched: false},
+  {src : "/images/8-2.png", matched: false},
+  {src : "/images/8-3.png", matched: false},
+  {src : "/images/8.png", matched: false},
+  {src : "/images/9-1.png", matched: false},
+  {src : "/images/9-3.png", matched: false},
+  {src : "/images/9.png", matched: false},
+  {src : "/images/10-1.png", matched: false},
+  {src : "/images/10-2.png", matched: false},
+  {src : "/images/10-3.png", matched: false},
+  {src : "/images/10.png", matched: false},
+  {src : "/images/A-1.png", matched: false},
+  {src : "/images/A-2.png", matched: false},
+  {src : "/images/A-3.png", matched: false},
+  {src : "/images/A.png", matched: false},
+  {src : "/images/J-1.png", matched: false},
+  {src : "/images/J-2.png", matched: false},
+  {src : "/images/J-3.png", matched: false},
+  {src : "/images/J.png", matched: false},
+  {src : "/images/Joker_1.png", matched: false},
+  {src : "/images/Joker_2.png", matched: false},
+  {src : "/images/K-1.png", matched: false},
+  {src : "/images/K-2.png", matched: false},
+  {src : "/images/K-3.png", matched: false},
+  {src : "/images/K.png", matched: false},
+
 ]
 
 function Game() {
@@ -29,7 +73,7 @@ function Game() {
 
   //this will shuffle the cards
    //shuffles the deck of card and creates a duplicate set so that there are matching pairs
-   //sorts the card according positive and negative	nnumbers
+   //sorts the card according positive and negative	numbers
     //positive: card remains in place, negative: card swaps position
     //this is then mapped to each card objct within the array
     //making sure that the shuffled cards are used in the realtime game state
