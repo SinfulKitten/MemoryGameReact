@@ -28,3 +28,7 @@
   transform: rotateY(90deg);
   transition-delay: 0s;
 }
+.matched {
+  opacity: 0;
+  transition-delay: 1s;
+}
