@@ -17,6 +17,7 @@
 .flipped .front {
   transform: rotateY(0deg);
   transition-delay: 0.2s;
+  pointer-events: none;  
 }
 
 /* back of card - cover */
