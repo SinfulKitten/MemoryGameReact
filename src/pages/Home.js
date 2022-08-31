@@ -24,14 +24,11 @@ export default function Home() {
 }
 
   return (
-    <div>
+    <div className="Home">
         <div className="memory_logo">
-            <h3>Memory</h3>
+            <h1>Memory</h1>
         </div>
-        <div className="game_message">
-        <h1>Are you ready to play?</h1>
-        </div>
-
+        
         <form>
         <div className="player_column">
           <img className="P1_sprite" src='/images/player1.png' alt="player_1_sprite"/>
@@ -43,6 +40,9 @@ export default function Home() {
         </div>
         </form>
         <br/>
+        <div className="game_message">
+        <h2>Are you ready to play?</h2>
+        </div>
         <div className="start_button">
         <button type="button" onClick={navAndCollect} >Lets Play</button>
         </div>

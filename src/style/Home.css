@@ -4,6 +4,10 @@
     animation: MoveUpDown 2s linear infinite;
 }
 
+.Home{   
+  font-family:Arial, Helvetica, sans-serif
+}
+
 .P2_sprite {
     height: 100 !important;
     width: 100 !important;
