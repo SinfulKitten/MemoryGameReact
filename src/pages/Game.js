@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './Game.css';
+import '../style/Game.css';
 import SingleCard from '../components/SingleCard';
 import {useNavigate} from 'react-router-dom';
 

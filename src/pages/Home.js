@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate} from 'react-router-dom';
-import './Home.css'
+import '../style/Home.css'
 
 
 //Home page where players enter their player names and can click the 
