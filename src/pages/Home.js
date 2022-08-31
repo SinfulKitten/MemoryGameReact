@@ -17,8 +17,6 @@ export default function Home() {
   //this allows collection of player names and also navigates to the
   //main gameplay page
   function navAndCollect() {
-  var player1Name = document.getElementById('P1_name').value;
-  var player2Name = document.getElementById('P2_name').value;
   navigateGamePage();
 }
 
