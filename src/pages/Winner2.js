@@ -13,7 +13,7 @@ export default function Winner() {
   return (
     <div>
         <h2>Well Done!</h2>
-        <h1>insert player here</h1>
+        <h1>Player 2</h1>
         <img className="winner_sprite" src='/images/winner.png' alt="winner"/>
         <div className="start_button">
         <button type="button" onClick={navigateGamePage} >PLAY AGAIN</button>

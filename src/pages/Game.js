@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import '../style/Game.css';
 import SingleCard from '../components/SingleCard';
 import {useNavigate} from 'react-router-dom';
@@ -64,6 +64,7 @@ const cardImages = [
 
 ]
 
+
 function Game() {
 
   const [cards, setCards] = useState([])
@@ -99,9 +100,6 @@ function Game() {
 
   //handle a choice
   const handleChoice = (card) => {
-    if(p2Points + p1Points === 54) {
-              winGame()
-            }
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
   }
 
@@ -112,9 +110,19 @@ function Game() {
     navigate('/');
   };
 
-  const winGame = () => {
-    navigate('/fatality')
+  const winGame = useCallback(() => {
+    if (p1Points + p2Points === 54){
+    if (p1Points > p2Points) {
+        navigate('/fatality')
+     }
+      else if (p2Points > p1Points) {
+        navigate('/futality')
+    }
+    else {
+      navigate('/brotality')
+    }
   }
+}, [navigate, p1Points, p2Points])
   //compare 2 selected cards
   //fires when the component first mounts automaticaly and then again
   //when a dependancy changes
@@ -123,7 +131,6 @@ function Game() {
   //make another move
   
   const resetTurn = () => {
-    
     setChoiceOne(null)
     setChoiceTwo(null)
     setTurns(prevTurns => prevTurns + 1)
@@ -131,7 +138,10 @@ function Game() {
     //TODO: when the full card array matched == true
     // navigate to winner page
   }
- useEffect(() => {
+  useEffect(() => {
+   setp1points(p1Points)
+   setp2points(p2Points)
+   winGame()
     if (choiceOne && choiceTwo) {
       setDisabled(true)
       if (choiceOne.number === "Joker" && choiceTwo.number === "Joker") {
@@ -173,7 +183,7 @@ function Game() {
       }
 
     }
-  }, [choiceOne, choiceTwo, turns])
+  }, [choiceOne, choiceTwo, turns, p1Points, p2Points, winGame])
 
 
 //resets the choices and increases number of turns that the player 
@@ -208,7 +218,6 @@ function Game() {
       <p>{p1Points}</p>
       <p>Player 1</p>
       </div>
-      
       <div className="playerContainer">
       <p>{turns % 2 === 0 ? "Player 1's Turn" : "Player 2's Turn"}</p>
       </div>
@@ -230,6 +239,7 @@ function Game() {
        />
        
       ))}
+
       </div>
     </div>
   );

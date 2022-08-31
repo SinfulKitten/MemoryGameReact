@@ -20,7 +20,6 @@ export default function Home() {
   var player1Name = document.getElementById('P1_name').value;
   var player2Name = document.getElementById('P2_name').value;
   navigateGamePage();
-  console.log(player1Name, player2Name);
 }
 
   return (
