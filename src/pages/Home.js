@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate} from 'react-router-dom';
-   
+import './Home.css'
 
 
 //Home page where players enter their player names and can click the 
@@ -33,15 +33,16 @@ export default function Home() {
         </div>
 
         <form>
-        <img className="P1_sprite" src='/images/player1.png' alt="player_1_sprite"/>
-
-        <input type="text" id="P1_name" name="P1_name" placeholder='player 1' required/>
-
+        <div className="player_column">
+          <img className="P1_sprite" src='/images/player1.png' alt="player_1_sprite"/>
+          <input type="text" id="P1_name" name="P1_name" placeholder='player 1' required/>
+        </div>
+        <div className='player_column'>
         <img className="P2_sprite" src='/images/player2.png' alt="player_2_sprite"/>
-
         <input type="text" id="P2_name" name="P2_name" placeholder='player 2' required/>
-
+        </div>
         </form>
+        <br/>
         <div className="start_button">
         <button type="button" onClick={navAndCollect} >Lets Play</button>
         </div>
