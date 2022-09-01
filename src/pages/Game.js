@@ -67,8 +67,12 @@ const cardImages = [
 
 
 function Game() {
-
+  
+  const navigate = useNavigate();
+  //sets up the cards to be played out
   const [cards, setCards] = useState([])
+
+  //sets up the turns for the game
   const [turns, setTurns] = useState(0)
   const [p1Points, setp1points] = useState(0);
   const [p2Points, setp2points] = useState(0);
@@ -101,6 +105,10 @@ function Game() {
 
   //handle a choice
   const handleChoice = (card) => {
+
+    //checks if the card pressed is the same card (as no card has the same id)
+    //does nothing if it meets the above conditions
+    //otherwise it handles the choice making wih no issue
     if(card.id === choiceOne?.id){
       return;
     }
@@ -108,10 +116,9 @@ function Game() {
 
   }
 
-    const navigate = useNavigate();
 
+    //goes back home
     const quitGame = () => {
-    // 👇️ navigate to /
     navigate('/');
   };
 
@@ -140,8 +147,6 @@ function Game() {
     setChoiceTwo(null)
     setTurns(prevTurns => prevTurns + 1)
     setDisabled(false)
-    //TODO: when the full card array matched == true
-    // navigate to winner page
   }
   useEffect(() => {
    setp1points(p1Points)
@@ -211,40 +216,41 @@ function Game() {
 
   return (
     <div className="Game">
-      <h1> Memory card game</h1>
+      <h1> Memory </h1>
       <div>
-       <button onClick={cardshuffler}>RESET GAME</button>    
+       <button onClick={cardshuffler}>START/RESET GAME</button>    
        <button onClick={quitGame}>EXIT GAME</button>    
        </div>
 
       <div className="playerNav">
+      <div className="playerContainer">
       <img src='images/player1.png' className="sprite1" alt='sprite 1'/>
-      <div className="playerContainer">
-      <p>{p1Points}</p>
       <p>Player 1</p>
-      </div>
-      <div className="playerContainer">
-      <p>{turns % 2 === 0 ? "Player 1's Turn" : "Player 2's Turn"}</p>
+      <p>Score: {p1Points}</p>
+
+      {turns % 2 === 0 ? <div className='turn-container1'>It's Your Turn</div> : ""}
       </div>
 
-      <div className="playerContainer">
-      <p>{p2Points}</p>
-        <p>Player 2</p>
-      </div>
-      <img src='images/player2.png' className="sprite2" alt="sprite2" />
-      </div>
-
-      <button onClick={cardshuffler}>START GAME</button>    
+      <div className='grid-container'>
       <div className='card-grid'>
       {cards.map(card => (
         <SingleCard key={card.id} card={card}
         handleChoice={handleChoice}
         flipped={card === choiceOne || card === choiceTwo || card.matched}
         disabled={disabled}
-       />
-       
-      ))}
+        />
+        
+        ))}
+       </div>
+        </div>
+        
+              <div className="playerContainer">
+              <img src='images/player2.png' className="sprite2" alt="sprite2" />
+                <p>Player 2</p>
+                <p>Score: {p2Points}</p>
 
+              {turns % 2 !== 0 ? <div className='turn-container2'>It's Your Turn</div> : ""}
+              </div>
       </div>
     </div>
   );
