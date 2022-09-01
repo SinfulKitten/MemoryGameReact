@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEffect, useState, useCallback } from 'react';
 import '../style/Game.css';
 import SingleCard from '../components/SingleCard';
@@ -100,7 +101,11 @@ function Game() {
 
   //handle a choice
   const handleChoice = (card) => {
+    if(card.id === choiceOne?.id){
+      return;
+    }
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+
   }
 
     const navigate = useNavigate();
