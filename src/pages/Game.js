@@ -1,7 +1,8 @@
 import React from 'react'
-import { useEffect, useState, useCallback } from 'react';
 import '../style/Game.css';
 import SingleCard from '../components/SingleCard';
+import Button from 'react-bootstrap/Button';
+import { useEffect, useState, useCallback } from 'react';
 import {useNavigate} from 'react-router-dom';
 
 //importing the deck images
@@ -218,8 +219,8 @@ function Game() {
     <div className="Game">
       <h1> Memory </h1>
       <div>
-       <button onClick={cardshuffler}>START/RESET GAME</button>    
-       <button onClick={quitGame}>EXIT GAME</button>    
+       <Button onClick={cardshuffler}>START/RESET GAME</Button>    
+       <Button onClick={quitGame}>EXIT GAME</Button>    
        </div>
 
       <div className="playerNav">

@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Memory
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is based on the memory card game (A.K.A pairs depending on where you played it)
 
-## Available Scripts
+## Rules
 
-In the project directory, you can run:
+This is a two player game, the objective is to score higher than your opponent by matching up more pairs of cards on the board based on the color and number (ace of clubs with ace of spades for example) with one match attempt per turn, the winner is decided once all cards are matched
 
-### `npm start`
+## The Code Base
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The project was made using React.js, JSX and CSS / React-Bootstrap for styling and animations,
+meaning it can be run using `npm start`, but recommended to run `npm install` if it is your first time with the project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### The Game Logic
 
-### `npm test`
+Initially, I made this project using the idea of declaring an array of the cards to turn them each into objects, including the full stack (heh) with their images and their appropriate details (their colour and their value).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To which this array would be mapped out within a JSX grid, using the useEffect and useState to keep their values in check (and an id for each card so that I do not make the error of placing a match by clicking the same card rapidly).
 
-### `npm run build`
+With that, came the user play, each card has 3 modes: `neutral`, `flipped` and `matched`. neutral is the cards set as they are, only once a user clicks on it, will it trigger a choice handler, which will give that card the `flipped` class, which will reveal the front of the card (and therefore the value), rendering it unclickable, should the user click another card and have it be a match for the first one, the chosen cards are given the `matched` class, which hides the cards but leaves them unclickable regardless. Should the second chosen card not be a match, both cards remove their `flipped` class, and are set back to neutral
+
+### Points
+
+For each match, the user is given 2 points, once the cards are all gone, the winner will be decided based on who accumulated the most points (though it is also possible to get a draw, that's an adventure on its own)
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

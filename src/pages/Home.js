@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button';
 import { useNavigate} from 'react-router-dom';
 import '../style/Home.css'
 
@@ -44,7 +45,7 @@ export default function Home() {
         <h2>Are you ready to play?</h2>
         </div>
         <div className="start_button">
-        <button type="button" onClick={navAndCollect} >Lets Play</button>
+        <Button variant="flat" size="xxl" type="button" onClick={navAndCollect} >Lets Play</Button>
         </div>
 
            
