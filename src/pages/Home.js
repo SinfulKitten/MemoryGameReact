@@ -29,11 +29,14 @@ export default function Home() {
         <form>
         <div className="player_column">
           <img className="P1_sprite" src='/images/player1.png' alt="player_1_sprite"/>
-          <input type="text" id="P1_name" name="P1_name" placeholder='player 1' required/>
+          <h2>Player 1</h2>
+        </div>
+        <div className="player_colum">
+          <h1>VS</h1>
         </div>
         <div className='player_column'>
         <img className="P2_sprite" src='/images/player2.png' alt="player_2_sprite"/>
-        <input type="text" id="P2_name" name="P2_name" placeholder='player 2' required/>
+        <h2>Player 2</h2>
         </div>
         </form>
         <br/>
