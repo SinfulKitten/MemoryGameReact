@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useNavigate} from 'react-router-dom';
-
+import '../style/Home.css';
 export default function UserNameInputForm() {
 
     const navigate = useNavigate();
@@ -10,10 +10,7 @@ export default function UserNameInputForm() {
     //submits player names to state and navigates to
     //the game page
     function NavAndSubmitData() {
-
             navigate('/FIGHT!');
-      
-        
     }
  
     
@@ -32,8 +29,8 @@ export default function UserNameInputForm() {
       <h1>VS</h1>
     </div>
     <div className='player_column'>
-    <img className="P2_sprite" src='/images/player2.png' alt="player_2_sprite"/>
     <input type="p2name" placeholder='Player 2 name?' onChange={(e) => setplayer2(e.target.value)}/>
+    <img className="P2_sprite" src='/images/player2.png' alt="player_2_sprite"/>
     <h2>Player 2</h2>
     </div>
     </form>

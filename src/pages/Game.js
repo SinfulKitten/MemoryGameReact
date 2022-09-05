@@ -5,7 +5,6 @@ import {useNavigate} from 'react-router-dom';
 import '../style/Game.css';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 //importing the deck images
 //initially non of the cards are matched , but i they are matched , 
 //the that property is set to true
