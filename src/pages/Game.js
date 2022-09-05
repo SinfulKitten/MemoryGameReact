@@ -228,6 +228,7 @@ function Game() {
        </div>
        </Row>
        <br/>
+       <div className='msg'>LANDSCAPE ONLY</div>
       <div className='gameRow'>
       <div className='grid-container'>
       <div className='card-grid'>
