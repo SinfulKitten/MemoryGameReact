@@ -1,13 +1,11 @@
 import React from 'react'
-import '../style/Game.css';
 import SingleCard from '../components/SingleCard';
+import { useEffect, useState, useCallback } from 'react';
+import {useNavigate} from 'react-router-dom';
+import '../style/Game.css';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Stack';
-import { useEffect, useState, useCallback } from 'react';
-import {useNavigate} from 'react-router-dom';
-
 //importing the deck images
 //initially non of the cards are matched , but i they are matched , 
 //the that property is set to true
@@ -200,6 +198,7 @@ function Game() {
   }, [choiceOne, choiceTwo, turns, p1Points, p2Points, winGame])
 
   useEffect(() => cardshuffler(), []);
+
 //resets the choices and increases number of turns that the player 
 //has taken
 //  uses function to set the turns using the previous state
@@ -220,25 +219,16 @@ function Game() {
 
   return (
     <div className="Game" onLoadStart={cardshuffler}>
-      <Row>
+      <Row className='title'>
      <h1>Memory</h1>
       <div>
-       <Button onClick={cardshuffler}>Restart Game</Button>
+       <Button variant='warning'  type="submit" onClick={cardshuffler}>Restart Game</Button>
        <span>     </span>
-       <Button onClick={quitGame}>Exit Game</Button>    
+       <Button variant='danger' onClick={quitGame}>Exit Game</Button>    
        </div>
        </Row>
        <br/>
-      <div className="playerNav">
-      <Container className='playerContainer'>
-        <Col>
-          <img src='images/player1.png' className="sprite1" alt='sprite 1'/>
-          <p>Player 1</p>
-          <p>Score: {p1Points}</p>
-
-          {turns % 2 === 0 ? <div className='turn-container1'>It's Your Turn</div> : ""}
-        </Col>
-      </Container>
+      <div className='gameRow'>
       <div className='grid-container'>
       <div className='card-grid'>
       {cards.map(card => (
@@ -249,18 +239,27 @@ function Game() {
         />
         
         ))}
-       </div>
         </div>
-        <Container className='playerContainer'>
-          <Col>
-              <img src='images/player2.png' className="sprite2" alt="sprite2"/>
-              <p>Player 2</p>
-              <p>Score: {p2Points}</p>
-              {turns % 2 !== 0 ? <div className='turn-container2'>It's Your Turn</div> : ""}
-          </Col>
-        </Container>
+      <br/>
+       </div>
+      <div className='playerContainer'>
+        <div className='playerRow1'>
+          <img src='images/player1.png' className="sprite1" alt='sprite 1'/>
+          <p>Player 1</p>
+          <p>Score: {p1Points}</p>
+          {turns % 2 === 0 ? <p className='turn-container1'>It's Your Turn</p> : ""}
       </div>
-    </div>
+      </div>
+      <div className='playerContainer'>
+        <div className='playerRow2'>
+          <p><img src='images/player2.png' className="sprite2" alt="sprite2"/></p>
+          <p>Player 2</p>
+          <p>Score: {p2Points}</p>
+          {turns % 2 !== 0 ? <p className='turn-container2'>It's Your Turn</p> : ""}
+        </div>
+        </div>
+      </div>
+      </div>
   );
 }
 
