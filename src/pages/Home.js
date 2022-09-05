@@ -30,6 +30,7 @@ export default function Home() {
         <form>
         <div className="player_column">
           <img className="P1_sprite" src='/images/player1.png' alt="player_1_sprite"/>
+          <input type="p1name" placeholder='Player 1 name?'/>
           <h2>Player 1</h2>
         </div>
         <div className="player_colum">
@@ -37,6 +38,7 @@ export default function Home() {
         </div>
         <div className='player_column'>
         <img className="P2_sprite" src='/images/player2.png' alt="player_2_sprite"/>
+        <input type="p2name" placeholder='Player 2 name?'/>
         <h2>Player 2</h2>
         </div>
         </form>
