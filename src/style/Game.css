@@ -1,55 +1,65 @@
 .Game{
-  max-width: 60vw;
-  margin:  40px auto;
+  max-width: 100vw;
   font-family:Arial, Helvetica, sans-serif;
 }
-
-button {
-  background: none;
-  border: 2px solid #fff;
-  padding: 6px 12px;
-  border-radius: 4px;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 1em;
+.msg{
+  display: none;
+}
+.title {
+  margin: 0;
+  text-align: center;
 }
 
-button:hover {
-  background: #0AB169;
-  color: #fff;
-}
 .grid-container {
-  padding: 50px;
+  background-image: linear-gradient(to bottom, #8fb5d1, #0095ff);
+  padding: 0 25px;
 }
 .card-grid {
-  margin-top:  40px;
+  margin-top:  10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
-  grid-gap: 20px;	
+  grid-gap: 20px;
+  max-width: 100vw;
 }
 
 .turn-container1 {
-  padding: 20px;
+  padding: 10px;
   color: white;
   background-color: #0AB169;
+  font-size: 2vh;
 }
 
 .turn-container2 {
-  padding: 20px;
+  padding: 10px;
   color: #489DDA;
   background-color: white;
-}
-.playerNav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  font-size: 2vh;
 }
 
 .playerContainer {
+  margin: 0;
+  text-align: center;
+  padding: 20px;
+  background-image: linear-gradient(to bottom, #8fb5d1, #0095ff);
+  height: 320px;
+  width: 200px;
+  margin: 0 auto;
+}
+.gameRow{
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.gameRow>*:first-child {
+  order: 2;
+}
+.gameRow>*:nth-child(2) {
+  order: 1;
+}
+.gameRow>*:nth-child(3) {
+  order: 3;
 }
 
 .sprite1{
@@ -70,5 +80,130 @@ button:hover {
   }
   50% {
     transform: translateY(-5px);
+  }
+}
+
+@media screen and (orientation:portrait) {
+  @media only screen and (max-width: 400px) {
+    /* For mobile phones: */
+    .Game{
+      display: none;
+    }
+
+    .msg{
+      font-size: 36px;
+      display: block;
+      margin: auto;
+      color: white;
+    }
+  }
+}
+
+@media screen and (orientation:landscape) {
+  @media only screen and (max-width: 850px) {
+    /* For mobile phones: */
+    .msg{
+      display: none;
+    }
+    .Game{
+      max-width: 60vw;
+      margin:  0 auto;
+      font-family:Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+    .gameRow {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+    .gameRow>*:first-child {
+      order: 1;
+    }
+    .gameRow>*:nth-child(2) {
+      order: 2;
+    }
+    .gameRow>*:nth-child(3) {
+      order: 3;
+    }
+
+    .playerContainer {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-self: auto;
+      padding: 20px;
+      background-image: linear-gradient(to bottom, #8fb5d1, #0095ff);
+      height: 100px;
+    }
+    .playerRow1 {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-self: center;
+      justify-content: space-between;
+    }
+    .playerRow1>:nth-child(1) {
+      order: 1;
+    }
+    .playerRow1>:nth-child(2) {
+      order: 2;
+    }
+    .playerRow1>:nth-child(3) {
+      order: 4;
+    }
+    .playerRow1>:nth-child(4) {
+      order: 3;
+    }
+    
+    .playerRow2 {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-self: center;
+      justify-content: space-around;
+    }
+
+    .playerRow2>:nth-child(1) {
+      order: 4;
+    }
+    .playerRow2>:nth-child(2) {
+      order: 3;
+    }
+    .playerRow2>:nth-child(3) {
+      order: 1;
+    }
+    .playerRow2>:nth-child(4) {
+      order: 2;
+    }
+    .sprite1{
+      height: 10vh;
+      width: 10vh;
+    }
+    .sprite2{
+      height: 10vh;
+      width: 10vh;
+    }
+    
+    .turn-container1 {
+      padding: 10px;
+      height: 10px;
+      color: white;
+      background-color: #0AB169;
+      font-size: 2vh;
+    }
+    
+    .turn-container2 {
+      padding: 10px;
+      height: 10px;
+      color: #489DDA;
+      background-color: white;
+      font-size: 2vh;
+    }
+    
+    p {
+      padding: 0 2px;
+    }
   }
 }
