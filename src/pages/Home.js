@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <div className="Home">
-        <div className="memory_logo">
+        <div className="memoryLogo">
             <h1>Memory</h1>
         </div>
         

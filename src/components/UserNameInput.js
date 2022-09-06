@@ -6,39 +6,44 @@ import '../style/Home.css';
 export default function UserNameInputForm() {
 
     const navigate = useNavigate();
-
     //submits player names to state and navigates to
     //the game page
     function NavAndSubmitData() {
-            navigate('/FIGHT!');
+      if (player1 !== "" && player2 !== "") {
+        navigate('/FIGHT!');
+      }
+      else {
+        setEmptyNames(true)
     }
+   }
  
-    
-  const [player1, setplayer1] = useState("Player 1")
-  const [player2, setplayer2] = useState("Player 2")
+  const [emptyNames, setEmptyNames] = useState(false)
+  const [player1, setplayer1] = useState("")
+  const [player2, setplayer2] = useState("")
 
   return (
     <div>
     <form>
-    <div className="player_column">
-      <img className="P1_sprite" src='/images/player1.png' alt="player_1_sprite"/>
+    <div className="playerColumn">
+      <img className="P1Sprite" src='/images/player1.png' alt="player 1 sprite"/>
       <input type="p1name" placeholder='Player 1 name?' onChange={(e) => setplayer1(e.target.value)}/>
-      <h2>Player 1</h2>
+      <h2>{player1}</h2>
+
     </div>
-    <div className="player_colum">
+    <div className="playerColumn">
       <h1>VS</h1>
     </div>
-    <div className='player_column'>
+    <div className='playerColumn'>
     <input type="p2name" placeholder='Player 2 name?' onChange={(e) => setplayer2(e.target.value)}/>
-    <img className="P2_sprite" src='/images/player2.png' alt="player_2_sprite"/>
-    <h2>Player 2</h2>
+    <img className="P2Sprite" src='/images/player2.png' alt="player 2 sprite"/>
+    <h2>{player2}</h2>
     </div>
     </form>
     <br/>
-    <div className="game_message">
-    <h2>Are you ready to play?</h2>
+    <div className="gameMessage">
+      {emptyNames === true? <h2>No Empty Names Pls</h2> : <h2>Are you ready to play?</h2>}
     </div>
-    <div className="start_button">
+    <div className="startButton">
     <Button variant="flat" size="xxl" type="button" onClick={NavAndSubmitData} >Lets Play</Button>
     </div>
 </div>

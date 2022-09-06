@@ -5,6 +5,10 @@ import {useNavigate} from 'react-router-dom';
 import '../style/Game.css';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
+
+
+
+
 //importing the deck images
 //initially non of the cards are matched , but i they are matched , 
 //the that property is set to true
@@ -72,11 +76,11 @@ function Game() {
   const navigate = useNavigate();
   //sets up the cards to be played out
   const [cards, setCards] = useState([])
-
+  
+  const [p2Points, setp2points] = useState(0);
+  const [p1Points, setp1points] = useState(0);
   //sets up the turns for the game
   const [turns, setTurns] = useState(0)
-  const [p1Points, setp1points] = useState(0);
-  const [p2Points, setp2points] = useState(0);
 
 
   //when user selects their first card , the first choice will be set to that card , 
@@ -142,7 +146,7 @@ function Game() {
   //only runs if both cards are selected
   //need to reset the turns so that the player can
   //make another move
-  
+
   const resetTurn = () => {
     setChoiceOne(null)
     setChoiceTwo(null)

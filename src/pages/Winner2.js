@@ -14,8 +14,8 @@ export default function Winner() {
     <div>
         <h2>Well Done!</h2>
         <h1>Player 2</h1>
-        <img className="winner_sprite" src='/images/winner.png' alt="winner"/>
-        <div className="start_button">
+        <img className="winnerSprite" src='/images/winner.png' alt="winner"/>
+        <div className="startButton">
         <button type="button" onClick={navigateGamePage} >PLAY AGAIN</button>
         </div>
     </div>

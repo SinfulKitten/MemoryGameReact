@@ -1,6 +1,4 @@
-.P1_sprite {
-    height: 100 !important;
-    width: 100 !important;
+.P1Sprite {
     animation: MoveUpDown 2s linear infinite;
 }
 
@@ -10,9 +8,7 @@
   text-align: center;
 }
 
-.P2_sprite {
-    height: 100 !important;
-    width: 100 !important;
+.P2Sprite {
     animation: MoveUpDown 1s linear infinite;
 }
 form {
